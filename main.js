@@ -20,3 +20,27 @@ function getAdjAndNoun() {
 	let x = document.getElementById('txt');
 	x.value = item;	
 }
+
+
+// fetch() tutorial
+// https://www.youtube.com/watch?v=cuEtnrL9-H0
+//
+// Fetch is promised base
+// We can use asynch await
+// or
+// .then() and .catch()
+
+// fetch('https://reqres.in/api/users')
+// 	.then(res => {
+// 	 if (res.ok) {
+// 	 	console.log('SUCCESS')
+// 	 } else {
+// 	 	console.log('Not Successful')
+// 	 }
+// 	})
+// 	.then(data => console.log(data))
+// 	.catch(error => console.log('ERROR'))
+
+
+//use this API (Note, if you don't pay 5$ it takes 7 days to recieve..)
+//https://developer.wordnik.com/gettingstarted
