@@ -2,7 +2,7 @@
 
 This could be used for improvisors, script writers, or even artists such as illustrators. The idea is to follow the improv technique of not planning ahead by generating objects, nouns, adjectives, etc. at random.
 
-![Screen Shot 2020-02-14 at 5.50.22 PM](/Users/JakeCannon/Desktop/Screen Shot 2020-02-14 at 5.50.22 PM.png)
+![Screen Shot 2020-02-14 at 5.50.22 PM](/Users/JakeCannon/Documents/projects/improv_generator/Screen Shot 2020-02-14 at 5.50.22 PM.png)
 
 
 
