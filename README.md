@@ -2,6 +2,8 @@
 
 This could be used for improvisors, script writers, or even artists such as illustrators. The idea is to follow the improv technique of not planning ahead by generating objects, nouns, adjectives, etc. at random.
 
+![Screen Shot 2020-02-14 at 5.50.22 PM](/Users/JakeCannon/Desktop/Screen Shot 2020-02-14 at 5.50.22 PM.png)
+
 
 
 ### Design
@@ -10,6 +12,7 @@ Static webpage with a input bar and a few buttons
 
 - Perhaps use a dictionary API to generate words
   - My current thought is to ping a dictionary API and check its *parts of speech* with a while loop for the correct buttons
+  - So far the only way I have figured out how to do this is via quering for a random word and then query that exact random word's data to get its *partOfSpeech*. This creates a bug in that if the user pushes the noun button and the API does not get a *noun* than the button appears to do nothing.
 
 
 
