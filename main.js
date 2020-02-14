@@ -21,23 +21,14 @@ function getAdjAndNoun() {
 	x.value = item;	
 }
 
-// This getNoun function currently works but its pretty sloppy
-// could make the fetch API call more DRY
-// Also not sure th
 function getNoun() {
 	fetch('http://api.wordnik.com/v4/words.json/randomWord?api_key=4nj9t1spsnu7k02y4vhr8wct3qrqckgpyv41g252r3gy5qdqg')
-	.then(function(response) {
-	response.json().then(function(object) {
-		console.log(object.word)
-		let word = object.word
-		console.log(word)
-		// let x = document.getElementById('txt');
-		// x.value = word;
-
-		// not sure what .value means here
+	.then((res) => res.json())
+	.then((data) => {
+		let word = data.word;
+		console.log(word);
 		document.getElementById('txt').value = word;
 	})
-})
 }
 
 
