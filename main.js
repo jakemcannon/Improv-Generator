@@ -6,6 +6,8 @@
 // 	x.value = item;	
 // }
 
+let wordnikAPI = "http://api.wordnik.com/v4/words.json/randomWord?api_key=4nj9t1spsnu7k02y4vhr8wct3qrqckgpyv41g252r3gy5qdqg"
+
 function getAdj() {
 	const myArray = ['Running', 'Jumping', 'Sleeping', 'Dieing'];
 	let item = myArray[Math.floor(Math.random() * myArray.length)]
@@ -23,7 +25,7 @@ function getAdjAndNoun() {
 
 function getNoun() {
 	// First fetch gets a random word and the queries the API for that exact word to check for the partOfSpeech
-	fetch('http://api.wordnik.com/v4/words.json/randomWord?api_key=4nj9t1spsnu7k02y4vhr8wct3qrqckgpyv41g252r3gy5qdqg')
+	fetch(wordnikAPI)
 	.then((res) => res.json())
 	.then((data) => {
 		let word = data.word;
@@ -39,7 +41,7 @@ function getNoun() {
 			console.log('Success')
 			document.getElementById('txt').value = word;
 		} else {
-			console.log('Failes')
+			console.log('Fails')
 		}
 	})
 	.catch(error => console.log('ERROR'))
