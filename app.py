@@ -38,15 +38,15 @@ def index():
 @app.route('/noun')
 def get_noun():
 
-	query = db.session.query(Noun).filter_by(id=randint(1, 1200)).first()
-	return query.word
+	noun = db.session.query(Noun).filter_by(id=randint(1, 1200)).first()
+	return noun.word
 
 
 @app.route('/adjective')
 def get_adjective():
 
-	query = db.session.query(Adjective).filter_by(id=randint(1, 1200)).first()
-	return query.word
+	adj = db.session.query(Adjective).filter_by(id=randint(1, 1200)).first()
+	return adj.word
 
 
 @app.route('/adjective_and_noun')
