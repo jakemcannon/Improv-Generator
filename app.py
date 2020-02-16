@@ -38,6 +38,11 @@ class NounSchema(ma.ModelSchema):
 	class Meta:
 		model = Noun
 
+class AdjectiveSchema(ma.ModelSchema):
+	class Meta:
+		model = Adjective
+
+
 @app.route('/')
 def index():
 	return jsonify({'message': 'TEST'}), 200
@@ -52,17 +57,21 @@ def get_noun():
 
 
 @app.route('/adjective')
+@cross_origin()
 def get_adjective():
-
 	adj = db.session.query(Adjective).filter_by(id=randint(1, 1200)).first()
-	return adj.word
+	adj_schema = AdjectiveSchema()
+	return adj_schema.dump(adj), 200
 
-
+## this one I am probably going to have to custom build with a dict
 @app.route('/adjective_and_noun')
+@cross_origin()
 def get_adjective_and_noun():
 	adj = db.session.query(Adjective).filter_by(id=randint(1, 1200)).first()
 	noun = query = db.session.query(Noun).filter_by(id=randint(1, 1200)).first()
-	return adj.word + " " + noun.word
+	result = adj.word + " " + noun.word
+	noun_schema = NounSchema()
+	return noun_schema.dump(result), 200
 
 
 if __name__ == '__main__':
