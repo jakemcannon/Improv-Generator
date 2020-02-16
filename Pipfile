@@ -13,6 +13,9 @@ psycopg2-binary = "*"
 install = "*"
 libpq-dev = "*"
 sqlalchemy = "*"
+flask-cors = "*"
+flask-marshmallow = "*"
+marshmallow-sqlalchemy = "*"
 
 [requires]
 python_version = "3.8"

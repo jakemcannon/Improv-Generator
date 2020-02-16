@@ -3,10 +3,15 @@ from random import randint
 
 from sqlalchemy import func
 from flask import Flask, request, jsonify
+from flask_cors import CORS, cross_origin
 from flask_sqlalchemy import SQLAlchemy
+from flask_marshmallow import Marshmallow, fields
 
 app = Flask(__name__)
+cors = CORS(app)
+ma = Marshmallow(app)
 
+app.config['CORS_HEADERS'] = 'Content-Type'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:12345@localhost/improv_words'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
@@ -29,6 +34,9 @@ class Adjective(db.Model):
 	def __init__(self, word):
 		self.word = word
 
+class NounSchema(ma.ModelSchema):
+	class Meta:
+		model = Noun
 
 @app.route('/')
 def index():
@@ -36,10 +44,11 @@ def index():
 
 
 @app.route('/noun')
+@cross_origin()
 def get_noun():
-
 	noun = db.session.query(Noun).filter_by(id=randint(1, 1200)).first()
-	return noun.word
+	noun_schema = NounSchema()
+	return noun_schema.dump(noun), 200
 
 
 @app.route('/adjective')
