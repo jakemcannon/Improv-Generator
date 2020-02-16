@@ -6,6 +6,7 @@ function getNoun() {
 		console.log(data)
 		document.getElementById('txt').value = data.word;
 	})
+	.catch((err) => console.log(err))
 }
 
 function getAdj() {
@@ -16,6 +17,7 @@ function getAdj() {
 		console.log(data)
 		document.getElementById('txt').value = data.word;
 	})
+	.catch((err) => console.log(err))
 }
 
 function getAdjAndNoun() {
@@ -25,6 +27,7 @@ function getAdjAndNoun() {
 		console.log(data)
 		document.getElementById('txt').value = data;
 	})
+	.catch((err) => console.log(err))
 }
 
 
